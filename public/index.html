@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Teste</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="public/src/css/style.css">
+</head>
+<body>
+
+	<div class="container">
+
+		<h1>Conversão de dados BWPS</h1>
+
+		<div class="container">
+			<div v-show="erro.return" class="alert alert-danger" role="alert">
+				<strong> Não foi possivel fazer a conversão, verifique o modulo a ser convertido ! </strong>
+				<p>{{ erro.modulo }}</p>
+			</div>
+		</div>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+
+					<th colspan="4">Conversao</th>
+
+				</tr>
+			</thead>
+			<tbody class="text-center">
+
+				<tr>
+					<td>
+						 <img v-show="cliente.loading" class="gif" src="public/src/img/gif/gif.gif" alt="">
+					</td>
+
+					<td>
+						 <i v-if="!cliente.success"  class="icons glyphicon glyphicon-remove"></i>
+						 <i v-else="cliente.success" class="icons-accept glyphicon glyphicon-ok"></i>
+					</td>
+
+					<td>
+						<h4>Cliente</h4>
+					</td>
+
+					<td>
+						<button @click="insereCliente()" :class="{ 'disabled' : cliente.loading }" class="btn btn-success">Processar</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						 <img v-show="fornecedor.loading" class="gif" src="public/src/img/gif/gif.gif" alt="">
+					</td>
+
+					<td>
+						 <i v-if="!fornecedor.success" class="icons glyphicon glyphicon-remove"></i>
+						  <i v-else="fornecedor.success" class="icons-accept glyphicon glyphicon-ok"></i>
+					</td>
+
+					<td>
+						<h4>Fornecedor</h4>
+					</td>
+
+					<td>
+						<button @click="insereFornecedor()" :class="{ 'disabled' : fornecedor.loading }" class="btn btn-success">Processar</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						 <img v-show="linha.loading" class="gif" src="public/src/img/gif/gif.gif" alt="">
+					</td>
+					<td class="text-center">
+						 <i v-if="!linha.success" class="icons glyphicon glyphicon-remove"></i>
+						 <i v-else="linha.success" class="icons-accept glyphicon glyphicon-ok"></i>
+					</td>
+
+					<td>
+						<h4>Linha</h4>
+					</td>
+
+					<td>
+						<button @click="insereLinha()" :class="{ 'disabled' : linha.loading }" class="btn btn-success">Processar</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						 <img v-show="grupo.loading" class="gif" src="public/src/img/gif/gif.gif" alt="">
+					</td>
+
+					<td class="text-center">
+						 <i v-if="!grupo.success" class="icons glyphicon glyphicon-remove"></i>
+						 <i v-else="grupo.success" class="icons-accept glyphicon glyphicon-ok"></i>
+					</td>
+
+					<td>
+						<h4>Grupo</h4>
+					</td>
+
+					<td>
+						<button @click="insereGrupo()" :class="{ 'disabled' : grupo.loading }" class="btn btn-success">Processar</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						 <img v-show="subGrupo.loading" class="gif" src="public/src/img/gif/gif.gif" alt="">
+					</td>
+
+					<td class="text-center" >
+						 <i v-if="!subGrupo.success" class="icons glyphicon glyphicon-remove"></i>
+						 <i v-else="subGrupo.success" class="icons-accept glyphicon glyphicon-ok"></i>
+					</td>
+
+					<td>
+						<h4>SubGrupo</h4>
+					</td>
+
+					<td>
+						<button @click="insereSubGrupo()" :class="{ 'disabled' : subGrupo.loading }" class="btn btn-success">Processar</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						 <img v-show="produto.loading" class="gif" src="public/src/img/gif/gif.gif" alt="">
+					</td>
+
+					<th class="text-center">
+						 <i v-if="!produto.success" class="icons glyphicon glyphicon-remove"></i>
+						 <i v-else="produto.success" class="icons-accept glyphicon glyphicon-ok"></i>
+					</th>
+
+					<td>
+						<h4>Produtos</h4>
+					</td>
+
+					<td>
+						<button @click="insereProduto()" :class="{ 'disabled' : produto.loading }" class="btn btn-success">Processar</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.27/vue.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
+	<script src="public/src/js/main.js"></script>
+</body>
+</html>
